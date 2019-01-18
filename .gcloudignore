@@ -2,3 +2,6 @@
 !app.yaml
 !main.py
 !favicon.ico
+!appengine_config.py
+!lib/**
+!requirements.txt

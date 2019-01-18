@@ -1,0 +1,64 @@
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   .gcloudignore
+	new file:   appengine_config.py
+	new file:   bucket01/portrait-utf8/vision-demo-raw
+	new file:   bucket01/portrait-utf8/vision-demo-rawphoto
+	new file:   bucket01/portrait-utf8/vision-demo-transfomed
+	new file:   bucket01/portrait-utf8/vision-demo-transformedphoto
+	new file:   bucket01/wide-utf8/vision-demo-raw
+	new file:   bucket01/wide-utf8/vision-demo-rawphoto
+	new file:   bucket01/wide-utf8/vision-demo-transfomed
+	new file:   bucket01/wide-utf8/vision-demo-transformedphoto
+	modified:   cmREADME.txt
+	new file:   lib/GoogleAppEngineCloudStorageClient-1.9.22.1-py2.7.egg-info/PKG-INFO
+	new file:   lib/GoogleAppEngineCloudStorageClient-1.9.22.1-py2.7.egg-info/SOURCES.txt
+	new file:   lib/GoogleAppEngineCloudStorageClient-1.9.22.1-py2.7.egg-info/dependency_links.txt
+	new file:   lib/GoogleAppEngineCloudStorageClient-1.9.22.1-py2.7.egg-info/installed-files.txt
+	new file:   lib/GoogleAppEngineCloudStorageClient-1.9.22.1-py2.7.egg-info/top_level.txt
+	new file:   lib/GoogleAppEngineCloudStorageClient-1.9.22.1-py2.7.egg-info/zip-safe
+	new file:   lib/cloudstorage/__init__.py
+	new file:   lib/cloudstorage/api_utils.py
+	new file:   lib/cloudstorage/cloudstorage_api.py
+	new file:   lib/cloudstorage/common.py
+	new file:   lib/cloudstorage/errors.py
+	new file:   lib/cloudstorage/rest_api.py
+	new file:   lib/cloudstorage/storage_api.py
+	new file:   lib/cloudstorage/test_utils.py
+	modified:   main.py
+	new file:   requirements.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	deleted:    .gcloudignore
+	deleted:    .gitignore
+	deleted:    README.md
+	deleted:    app.yaml
+	deleted:    appengine_config.py
+	deleted:    blobstore.py
+	deleted:    blobstore_test.py
+	deleted:    cmREADME.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	FOREVER_LOST.txt
+	cmREADME.txt~
+	lib/cloudstorage/__init__.pyc
+	lib/cloudstorage/api_utils.pyc
+	lib/cloudstorage/cloudstorage_api.pyc
+	lib/cloudstorage/common.pyc
+	lib/cloudstorage/errors.pyc
+	lib/cloudstorage/rest_api.pyc
+	lib/cloudstorage/storage_api.pyc
+	lib/cloudstorage/test_utils.pyc
+	main.pyc
+	main.py~
+	photoPortrait.json~
+	photoWide.json~
+

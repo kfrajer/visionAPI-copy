@@ -14,7 +14,6 @@
 
 """
 Sample application that demonstrates how to use the App Engine Images API.
-
 For more information, see README.md.
 """
 
