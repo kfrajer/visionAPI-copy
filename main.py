@@ -46,6 +46,11 @@ from google.appengine.api import app_identity
 ## c:\Users\cmosquera\Downloads\devFolder\workspace\python\visonAPI-copy>curl -H "Content-Type: application/json" --data @photoPortrait.json "http://cmosquera-dev.appspot.com/info"
 ## Image information: WxH 634x951
 
+## curl with paramters: https://superuser.com/questions/149329/what-is-the-curl-command-line-syntax-to-do-a-post-request
+## PORTRAIT:  https://unsplash.com/photos/L7gNs5dfF1w
+## LANDSCAPE: https://unsplash.com/photos/-ePZt0Fxnfc
+
+DEFAULT_FILE_NAME = 'vision-demo'
 
 # [START retries]
 cloudstorage.set_default_retry_params(
@@ -82,6 +87,7 @@ class ImageInfo(webapp2.RequestHandler):
         #image_data – String of the source image data
         #jdata = json.loads(cgi.escape(self.request.body))
         jdata = json.loads(self.request.body)
+        corefname = jdata['requests'][0]['image']['corefn'] || DEFAULT_FILE_NAME
         photo=jdata['requests'][0]['image']['content']
         photostr=base64.b64decode(photo)
         
@@ -92,14 +98,14 @@ class ImageInfo(webapp2.RequestHandler):
             self.response.out.write(str(img.width) + "x" + str(img.height))
             #bt = BucketTest(webapp2.RequestHandler)
             #bt.vision_into_bucket(str(img.width) + "x" + str(img.height))
-            self.vision_into_bucket(str(img.width) + "x" + str(img.height),'/vision-demo-raw')
+            self.vision_into_bucket(self.fmt_msg(str(img.width) + "x" + str(img.height)),'/'+corefname+'-raw')
             #self.vision_into_bucket(photo.encode('utf-8'),'/vision-demo-rawphoto')
-            self.vision_into_bucket(base64.b64decode(photo),'/vision-demo-rawphoto64')
+            self.vision_into_bucket(base64.b64decode(photo),'/'+corefname+'-rawphoto.jpg')
 
             img.im_feeling_lucky()
             transformedphoto = img.execute_transforms(output_encoding=images.JPEG)
-            self.vision_into_bucket(str(img.width) + "x" + str(img.height),'/vision-demo-transformed')
-            self.vision_into_bucket(transformedphoto,'/vision-demo-transformedphoto')
+            self.vision_into_bucket(self.fmt_msg(str(img.width) + "x" + str(img.height)),'/'+corefname+'-transformed')
+            self.vision_into_bucket(transformedphoto,'/'+corefname+'-transformedphoto.jpg')
             return
 
         # Either "id" wasn't provided, or there was no image with that ID
@@ -151,7 +157,7 @@ class ImageInfo(webapp2.RequestHandler):
             filename, 'w', content_type='text/plain', options={
                 'x-goog-meta-foo': 'foo', 'x-goog-meta-bar': 'bar'},
                 retry_params=write_retry_params) as cloudstorage_file:
-                    cloudstorage_file.write(self.fmt_msg(body))
+                    cloudstorage_file.write(body)  ## self.fmt_msg(body)
         # self.tmp_filenames_to_clean_up.append(filename)
 # [END write2]
 
