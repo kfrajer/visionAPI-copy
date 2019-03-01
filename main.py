@@ -87,7 +87,9 @@ class ImageInfo(webapp2.RequestHandler):
         #image_data – String of the source image data
         #jdata = json.loads(cgi.escape(self.request.body))
         jdata = json.loads(self.request.body)
-        corefname = jdata['requests'][0]['image']['corefn'] || DEFAULT_FILE_NAME
+        corefname = jdata['requests'][0]['image']['corefn']
+        if corefname is None:
+            corefname=DEFAULT_FILE_NAME
         photo=jdata['requests'][0]['image']['content']
         photostr=base64.b64decode(photo)
         

@@ -6,3 +6,5 @@ gcloud app deploy -v imageapi-py27
 gcloud app deploy -v imageapi-py27-v2 
 "pip install GoogleAppEngineCloudStorageClient -t lib" 
 curl -H "Content-Type: application/json" --data @photoPortrait.json "https://cmosquera-dev.appspot.com/info" 
+curl -H "Content-Type: application/json" --data @bucket03\original\photoPortrait0002.json "https://cmosquera-dev.appspot.com/info" 
+curl -H "Content-Type: application/json" --data @bucket03\original\photoLandscape0002.json "https://cmosquera-dev.appspot.com/info" 
